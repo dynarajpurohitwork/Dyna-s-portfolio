@@ -291,6 +291,9 @@ svg text{font-family:var(--f-head)}
 .hub svg{position:absolute; inset:0; width:100%; height:100%; z-index:0}
 .hub .chip{position:absolute; z-index:1}
 .hub-core{position:absolute; left:50%; top:50%; translate:-50% -50%; z-index:1; background:var(--pink); font-weight:800; padding:8px 14px; rotate:-4deg}
+.stress .ping{animation:ping 2.4s ease-in-out infinite; transform-box:fill-box; transform-origin:center}
+.stress .ping:nth-of-type(2){animation-delay:.6s} .stress .ping:nth-of-type(3){animation-delay:1.2s} .stress .ping:nth-of-type(4){animation-delay:1.8s}
+@keyframes ping{0%,100%{scale:1} 15%{scale:1.45} 30%{scale:1}}
 .cal{display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-top:24px; max-width:420px}
 .cal span{border:2px solid var(--ink); border-top-width:8px; background:#fff; font-size:12px; font-weight:700; padding:10px 6px; text-align:center; min-height:62px; display:grid; place-items:center; line-height:1.15}
 .cal span.on{background:var(--pink-soft); border-top-color:var(--pink)}
@@ -614,11 +617,22 @@ svg text{font-family:var(--f-head)}
   <p class="eyebrow">the insight</p>
   <h2 class="h2" style="font-size:clamp(30px,3.6vw,46px)">Anxious students scroll for <span class="hl">reassurance</span>, not entertainment.</h2>
   <p class="hand" style="margin:20px 0 0;max-width:22ch">so we showed up on their exam calendar, not ours.</p>
-  <div class="cal">
-    <span>syllabus deadline</span><span class="on">pre-boards</span><span>NORCET</span><span class="on">exam week</span>
-  </div>
-  <div class="row" style="margin-top:16px"><span class="chip fill">Nashta</span><span class="chip fill">NST</span><span class="chip fill">Preboards</span></div>
-  <p class="soft" style="margin:8px 0 0;font-size:13px">signature campaigns, timed to the academic calendar</p>
+  <svg class="chart stress" viewBox="0 0 430 220" role="img" aria-label="Exam stress rises from syllabus deadline to pre-boards, NORCET and exam week. NPrep content shows up at each spike." style="margin-top:18px;max-width:440px">
+    <text x="0" y="0" transform="translate(12 150) rotate(-90)" font-size="11" fill="#615954">exam stress →</text>
+    <line x1="24" y1="172" x2="420" y2="172" stroke="#1c1918" stroke-width="2"/>
+    <path d="M24 164L70 150L170 124L270 86L370 34L410 26" fill="none" stroke="#ff5fa2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g font-size="11.5" font-weight="700" fill="#1c1918" text-anchor="middle">
+      <text x="70" y="190">syllabus</text><text x="70" y="204">deadline</text>
+      <text x="170" y="190">pre-boards</text>
+      <text x="270" y="190">NORCET</text>
+      <text x="370" y="190">exam week</text>
+    </g>
+    <g stroke="#1c1918" stroke-width="1.5" stroke-dasharray="3 3"><line x1="70" y1="150" x2="70" y2="172"/><line x1="170" y1="124" x2="170" y2="172"/><line x1="270" y1="86" x2="270" y2="172"/><line x1="370" y1="34" x2="370" y2="172"/></g>
+    <g fill="#ff5fa2" stroke="#1c1918" stroke-width="2"><circle class="ping" cx="70" cy="150" r="7"/><circle class="ping" cx="170" cy="124" r="7"/><circle class="ping" cx="270" cy="86" r="7"/><circle class="ping" cx="370" cy="34" r="7"/></g>
+    <rect x="118" y="84" width="104" height="24" rx="12" fill="#1c1918"/><text x="170" y="100" text-anchor="middle" font-size="12" font-weight="800" fill="#fbf8f1">Preboards</text>
+    <text x="232" y="30" font-size="12" fill="#615954">we post here ↓</text>
+  </svg>
+  <div class="row" style="margin-top:12px;align-items:center"><span class="chip fill">Nashta</span><span class="chip fill">NST</span><span class="chip fill">Preboards</span><span class="soft" style="font-size:13px">campaigns timed to their stress, not our schedule</span></div>
   <span class="pnum">08</span>
 </div>
 </template>
